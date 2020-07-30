@@ -5,40 +5,30 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
-@Entity(name = "Produto")
+@Entity(name = "Categoria")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Produto {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable = false, length = 200)
-    @NotEmpty(message = "")
+    @Column(nullable = false, length = 150)
     private String nome;
 
-    @Column(nullable = false, length = 100)
-    @NotEmpty(message = "")
-    private String tipo;
-
     @Column(nullable = true, length = 500)
-    @NotEmpty(message = "")
     private String descricao;
 
-    @Column(name = "data_cadastro", updatable = false)
+    @Column(name = "data_criacao", updatable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCadastro;
-
-    @ManyToOne(cascade = {CascadeType.REMOVE})
-    @JoinColumn(name="id_categoria")
-    private Categoria categoria;
 
 
     @PrePersist
