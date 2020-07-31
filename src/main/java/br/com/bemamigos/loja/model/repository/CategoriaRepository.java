@@ -1,4 +1,4 @@
-package br.com.bemamigos.loja.model.entity.repository;
+package br.com.bemamigos.loja.model.repository;
 
 import br.com.bemamigos.loja.model.entity.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;

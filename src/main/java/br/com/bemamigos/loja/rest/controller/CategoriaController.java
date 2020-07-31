@@ -1,7 +1,7 @@
 package br.com.bemamigos.loja.rest.controller;
 
 import br.com.bemamigos.loja.model.entity.Categoria;
-import br.com.bemamigos.loja.model.entity.repository.CategoriaRepository;
+import br.com.bemamigos.loja.model.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,8 @@ import java.util.List;
 public class CategoriaController {
     private final String CATEGORIA_NAO_ENCONTRADA = "Categoria não encontrada";
     @Autowired
-    private CategoriaRepository repository;
+    CategoriaRepository repository;
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
